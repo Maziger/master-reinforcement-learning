@@ -33,5 +33,14 @@ Meaning:
   Can't exceed the capacity of 20 at the destination location
 
 3. Calculate the expected reward r(s,a)
+???...???
 
-4. 
+
+
+4. Give the inventory dynamics for Location 2
+Note the inventory dynamics (number of cars) at each parking lot is independent of the other given an action a. Let us consider Location 1 and assume that we are in state x and chose action a. Then the number of cars after movement is x - a and after rental requests x - a - min(D_1, x - a). Next, the number of retured cars are added:
+x - a - min(D_1, x - a) + H_1. Finally, note that if this number is above 20 (parking lot capacity), then we only have 20 cars, i.e. the inventory dynamics (number of cars at the end of the day) is:
+   X = min(20, x - a - min(D_1, x - a) + H_1))
+
+Inventory dynamics for location 2 (opposite of location 1): 
+  Y = min(20, y + a - min(D_2, y + a) + H_2))
